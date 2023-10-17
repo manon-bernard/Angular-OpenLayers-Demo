@@ -9,7 +9,7 @@ import { useGeographic } from 'ol/proj';
   styleUrls: ['./map.component.css'],
   providers: [MapService]
 })
-export class MapComponent {
+export class MapComponent implements OnInit{
 
   // Creating a private property named mapService, injecting the MapService class.
   // On map component construction, create an instance of the mapService service to be used in the map component only (private).
@@ -20,6 +20,5 @@ export class MapComponent {
     this.mapService.createMap();
     this.mapService.updateUserLocation();
   }
-
 
 }

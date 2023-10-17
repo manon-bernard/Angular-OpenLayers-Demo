@@ -82,11 +82,13 @@ export class MapService {
     // - If user location is defined, set the user location property to that value and set the marker position accordingly.
     this.geolocation.on('change:position', () => {
       const userLocation: Coordinate | undefined = this.geolocation.getPosition();
+
+      //! To rework.
       if (userLocation) {
-        //console.log('Geolocation:', userLocation);
+        console.log('Geolocation:', userLocation);
         this.userLocation = userLocation;
       } else {
-        //console.log('Geolocation not available or permission denied. Centering on Paris.');
+        console.log('Geolocation not available or permission denied. Centering on Paris.');
         this.userLocation = [2.349014, 48.864716];
       }
       this.updateMapCenter(this.userLocation);
