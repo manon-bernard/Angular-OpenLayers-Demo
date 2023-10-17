@@ -1,0 +1,16 @@
+<section class="comments">
+  <h3 class="comments__title">
+    Derniers commentaires:
+  </h3>
+  <div class="comments__container">
+    <ul class="comments__list">
+      <app-comment-item
+        *ngFor="let comment of comments"
+        [comment]="comment"
+      ></app-comment-item>
+    </ul>
+    <div class="comments__controls">
+      <app-button name="Ajouter un commentaire"></app-button>
+    </div>
+  </div>
+</section>

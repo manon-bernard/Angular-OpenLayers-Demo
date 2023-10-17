@@ -1,0 +1,26 @@
+.comments {
+  padding: 1rem;
+}
+
+.comments__title {
+  margin-block: 1.5rem;
+}
+
+.comments__controls {
+  background-color:rgb(250, 250, 250);
+  display:flex;
+  gap:0.5rem;
+  border-bottom: 1px solid rgb(207, 207, 207);
+  padding: 1rem;
+}
+
+.comments__button {
+  background-color:rgb(87, 87, 87);
+  color: rgb(250, 250, 250);
+  padding: 1rem;
+  border-radius: 0.75em;
+}
+
+.comments__button:hover {
+  background-color:rgb(105, 105, 105);
+}

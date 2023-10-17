@@ -1,0 +1,38 @@
+
+
+.detail__container {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.detail {
+  padding: 1rem;
+}
+
+.spot__title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.spot__tags {
+  padding: 1rem 0;
+}
+.spot__tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+
+
+.spot__info {
+  margin-bottom: 0.5rem;
+}
+
+.spot__category {
+  font-weight: bold;
+}
+
