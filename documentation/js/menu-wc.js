@@ -88,9 +88,6 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                                 <a href="components/MainComponent.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >MainComponent</a>
                                             </li>
                                             <li class="link">
-                                                <a href="components/MapComponent.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >MapComponent</a>
-                                            </li>
-                                            <li class="link">
                                                 <a href="components/SpotDetailsComponent.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >SpotDetailsComponent</a>
                                             </li>
                                             <li class="link">
@@ -104,6 +101,22 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </li>
                 </ul>
                 </li>
+                    <li class="chapter">
+                        <div class="simple menu-toggler" data-bs-toggle="collapse" ${ isNormalMode ? 'data-bs-target="#components-links"' :
+                            'data-bs-target="#xs-components-links"' }>
+                            <span class="icon ion-md-cog"></span>
+                            <span>Components</span>
+                            <span class="icon ion-ios-arrow-down"></span>
+                        </div>
+                        <ul class="links collapse " ${ isNormalMode ? 'id="components-links"' : 'id="xs-components-links"' }>
+                            <li class="link">
+                                <a href="components/MapComponent.html" data-type="entity-link" >MapComponent</a>
+                            </li>
+                            <li class="link">
+                                <a href="components/MapComponent-1.html" data-type="entity-link" >MapComponent</a>
+                            </li>
+                        </ul>
+                    </li>
                     <li class="chapter">
                         <div class="simple menu-toggler" data-bs-toggle="collapse" ${ isNormalMode ? 'data-bs-target="#classes-links"' :
                             'data-bs-target="#xs-classes-links"' }>
