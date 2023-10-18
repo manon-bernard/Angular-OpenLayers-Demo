@@ -12,6 +12,8 @@ import VectorSource from 'ol/source/Vector';
 import { Feature } from 'ol';
 import Point from 'ol/geom/Point';
 import {Circle, Fill, Stroke, Style} from 'ol/style.js';
+import { Spot } from 'src/app/models/spot';
+import { Geometry } from 'ol/geom';
 
   // The map service is managing the whole logic:
   // - Displaying the map with the user coordinates/marker
@@ -39,7 +41,10 @@ export class MapService {
      * Geolocation object, that will allow to get the user position.
      */
     private geolocation!: Geolocation
-
+    /**
+     * Layer for positionning the spots marker on the map.
+     */
+    private spotLayer!: VectorLayer<VectorSource>
 
   /**
    * Method responsible for creating the Map object and displaying it in the Map component.
@@ -85,10 +90,10 @@ export class MapService {
 
       //! To rework.
       if (userLocation) {
-        console.log('Geolocation:', userLocation);
+        // console.log('Geolocation:', userLocation);
         this.userLocation = userLocation;
       } else {
-        console.log('Geolocation not available or permission denied. Centering on Paris.');
+        // console.log('Geolocation not available or permission denied. Centering on Paris.');
         this.userLocation = [2.349014, 48.864716];
       }
       this.updateMapCenter(this.userLocation);
@@ -135,5 +140,49 @@ export class MapService {
     // Add the layer to the map to be displayed in the map component.
     this.map.addLayer(this.userMarkerLayer);
   }
+
+
+
+
+  /**
+   * Method allowing the creation of a vector layer displaying all the spots on the map.
+   * @param spots Array of objects representing the lists of spots to display on the map.
+   */
+  showSpots(spots: Spot[]) {
+
+
+    const featuresList: Feature<Geometry>[] = []
+    spots.forEach((spot) => {
+      featuresList.push(new Feature ({geometry: new Point(spot.coordinates)}))
+    })
+
+    console.log(featuresList)
+
+    const spotLayer = new VectorLayer({
+      source: new VectorSource({
+        features: featuresList}),
+      style: new Style({
+        image: new Circle({
+          radius: 6,
+          fill: new Fill({
+            color: '#CD5C08',
+          }),
+          stroke: new Stroke({
+            color: '#fff',
+            width: 2,
+          }),
+        })
+      })
+    });
+
+    console.log(spotLayer)
+
+    this.spotLayer = spotLayer;
+    this.map.addLayer(this.spotLayer);
+    this.map.getView()
+    console.log(this.map.getAllLayers())
+
+  }
+
 
 }

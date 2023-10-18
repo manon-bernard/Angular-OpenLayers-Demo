@@ -1,3 +1,4 @@
+import { Coordinate } from "ol/coordinate";
 import { UserComment } from "./user-comment";
 
 /**
@@ -8,6 +9,10 @@ export class Spot {
    * Name of the location.
    */
   public name: string;
+   /**
+   * Description text content.
+   */
+   public coordinates: Coordinate;
   /**
    * Description text content.
    */
@@ -30,19 +35,22 @@ export class Spot {
   public commentList: UserComment[]
 
   constructor(
+    coordinates: Coordinate,
     name: string,
     description:string,
+    username: string,
     date: string,
     tagList: tag[],
-    commentList: UserComment[],
-    username: string)
+    commentList: UserComment[]
+    )
     {
+      this.coordinates = coordinates;
       this.name = name;
       this.description = description;
-      this.tagList = tagList;
       this.username = username;
       this.date = date;
       this.commentList = commentList;
+      this.tagList = tagList;
   }
 }
 
