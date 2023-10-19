@@ -218,5 +218,11 @@ export class MapService {
     return this.spot
   }
 
+  listenSpotOnDblClick(){
+    this.map.on('dblclick', (event) => {
+      console.log('Way to add a new spot')
+    })
+  }
+
 
 }

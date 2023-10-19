@@ -45,7 +45,9 @@ export class MapComponent implements OnInit{
     this.mapService.showSpots(this.spots);
 
     // Clicks Listener.
-    this.mapService.listenSpotOnClick()
+    this.mapService.listenSpotOnClick();
+    this.mapService.listenSpotOnDblClick();
+
   }
 
   /**
@@ -56,6 +58,11 @@ export class MapComponent implements OnInit{
   onClick(){
     const spot = this.mapService.getSelectedSpot();
     this.mapClicked.emit(spot)
+  }
+
+  onDoubleClick(){
+    // Get the clicked coordinate
+    // Emit to parent ?
   }
 
 }

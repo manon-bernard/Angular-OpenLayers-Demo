@@ -1,0 +1,111 @@
+<div class="add-spot-container">
+
+  <h2>Ajouter un spot</h2>
+  <section class="add-spot__form">
+    <form>
+      <fieldset>
+        <legend class="spot__coordinates hidden">Coordonnées</legend>
+        <label
+          for="lat"
+          class="spot__label"
+        >Latitude</label>
+        <input
+          type="number"
+          name="lat"
+          id="lat"
+          class="spot__input"
+        >
+        <label
+          for="long"
+          class="spot__label"
+        >Longitude</label>
+        <input
+          type="number"
+          name="long"
+          id="long"
+          class="spot__input"
+        >
+      </fieldset>
+      <fieldset>
+        <legend class="add-spot__details hidden">Informations</legend>
+
+        <label
+          for="name"
+          class="spot__label"
+        >Nom</label>
+        <input
+          type="text"
+          name="long"
+          id="long"
+          class="spot__label"
+        >
+        <label
+          for="description"
+          class="spot__label"
+        >Description</label>
+        <textarea
+          name="description"
+          id="description"
+          rows="5"
+          class="spot__textarea"
+        ></textarea>
+        <label
+          for="tags"
+          class="spot__label"
+        >Tags</label>
+        <label
+          class="tag__label"
+          for="tag-art"
+        ><input
+            type="checkbox"
+            id="tag-art"
+            name="tags"
+            value="art"
+          ><app-tag tagName="Art"></app-tag></label>
+        <label
+          class="tag__label"
+          for="tag-monument"
+        ><input
+            class="tag__input"
+            type="checkbox"
+            id="tag-monument"
+            name="tags"
+            value="monument"
+          ><app-tag tagName="Monument"></app-tag></label>
+        <label
+          for="tag-nature"
+          class="tag__label"
+        ><input
+            type="checkbox"
+            class="tag__input"
+            id="tag-nature"
+            name="tags"
+            value="nature"
+          ><app-tag tagName="Nature"></app-tag></label>
+        <label
+          for="tag-curiosite"
+          class="tag__label"
+        ><input
+            type="checkbox"
+            class="tag__input"
+            id="tag-curiosite"
+            name="tags"
+            value="curiosite"
+          ><app-tag tagName="Curiosité"></app-tag></label>
+        <label
+          for="tag-autre"
+          class="tag__label"
+        ><input
+            type="checkbox"
+            class="tag__input"
+            id="tag-autre"
+            name="tags"
+            value="autre"
+          ><app-tag tagName="Autre"></app-tag></label>
+      </fieldset>
+
+    </form>
+
+  </section>
+
+</div>

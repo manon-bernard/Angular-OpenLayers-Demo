@@ -13,6 +13,7 @@ import { CommentListComponent } from './components/comment-list/comment-list.com
 import { CommentItemComponent } from './components/comment-item/comment-item.component';
 import { TagComponent } from './components/tag/tag.component';
 import { ButtonComponent } from './components/button/button.component';
+import { AddSpotComponent } from './components/add-spot/add-spot.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { ButtonComponent } from './components/button/button.component';
     CommentListComponent,
     CommentItemComponent,
     TagComponent,
-    ButtonComponent
+    ButtonComponent,
+    AddSpotComponent
   ],
   imports: [
     BrowserModule,
