@@ -1,4 +1,7 @@
-<div class="add-spot-container">
+<div
+  class="add-spot-container"
+  *ngIf="allowAddSpot"
+>
 
   <h2>Ajouter un spot</h2>
   <section class="add-spot__form">
@@ -103,7 +106,11 @@
             value="autre"
           ><app-tag tagName="Autre"></app-tag></label>
       </fieldset>
-
+      <input
+        type="submit"
+        class="add-spot__submit"
+        value="Ajouter"
+      >
     </form>
 
   </section>
