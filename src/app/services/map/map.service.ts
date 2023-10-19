@@ -9,7 +9,7 @@ import Geolocation from 'ol/Geolocation.js';
 import { Coordinate } from 'ol/coordinate';
 import VectorLayer from 'ol/layer/Vector';
 import VectorSource from 'ol/source/Vector';
-import { Feature } from 'ol';
+import { Feature, Overlay } from 'ol';
 import Point from 'ol/geom/Point';
 import {Circle, Fill, Stroke, Style} from 'ol/style.js';
 import { Spot } from 'src/app/models/spot';
@@ -24,6 +24,7 @@ import { Geometry } from 'ol/geom';
   providedIn: 'root'
 })
 export class MapService {
+
 
     /**
      * Map object.
@@ -45,6 +46,10 @@ export class MapService {
      * Layer for positionning the spots marker on the map.
      */
     private spotLayer!: VectorLayer<VectorSource>
+    /**
+     * Spot selected.
+     */
+    spot!: {name:string, coordinates: Coordinate} | undefined
 
   /**
    * Method responsible for creating the Map object and displaying it in the Map component.
@@ -141,22 +146,20 @@ export class MapService {
     this.map.addLayer(this.userMarkerLayer);
   }
 
-
-
-
   /**
    * Method allowing the creation of a vector layer displaying all the spots on the map.
    * @param spots Array of objects representing the lists of spots to display on the map.
    */
   showSpots(spots: Spot[]) {
 
-
     const featuresList: Feature<Geometry>[] = []
     spots.forEach((spot) => {
-      featuresList.push(new Feature ({geometry: new Point(spot.coordinates)}))
+      const newSpot = new Feature ({geometry: new Point(spot.coordinates)})
+      featuresList.push(newSpot)
+      newSpot.setProperties({
+        name: spot.name,
+      })
     })
-
-    console.log(featuresList)
 
     const spotLayer = new VectorLayer({
       source: new VectorSource({
@@ -175,13 +178,44 @@ export class MapService {
       })
     });
 
-    console.log(spotLayer)
 
     this.spotLayer = spotLayer;
     this.map.addLayer(this.spotLayer);
     this.map.getView()
-    console.log(this.map.getAllLayers())
+  }
 
+  /**
+   * Method triggering an event listenner for clicks on the existing map.
+   * Return an object with the spot data, if a feature is available near the pixel clicked.
+   */
+  listenSpotOnClick() {
+
+    this.map.on('click', (event)=>{
+
+      // Check available features on the pixel clicked:
+      // - Return undefined if no marker
+      // - Return a Feature<Point> object if a marker is there.
+      const feature: Feature<Point> | undefined = this.map.forEachFeatureAtPixel(event.pixel, (feature) => feature as Feature<Point>)
+
+      if (feature) {
+
+        // Extract the Point Object, to allow fetching of coordinates.
+        const featurePoint : Point | undefined  = feature!.getGeometry();
+
+          // Extract Point Feature Data
+          const name = feature!.get('name');
+          const coordinates = featurePoint!.getCoordinates();
+          name && coordinates ? this.spot = {name, coordinates}: this.spot = undefined;
+      }
+    })
+  }
+
+  /**
+   * Method allowinf to get back the spot clicked data or undefined.
+   * @returns Spot selected informations (name, coordinates)
+   */
+  getSelectedSpot(){
+    return this.spot
   }
 
 

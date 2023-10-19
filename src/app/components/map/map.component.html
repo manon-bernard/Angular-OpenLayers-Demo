@@ -1,5 +1,8 @@
 <div class="map__container">
-  <div id="ol-map"></div>
+  <div
+    id="ol-map"
+    (click)="onClick()"
+  ></div>
   <div class="map__controls">
     <app-button name='Ajouter un spot'></app-button>
     <app-button name='Recentrer'></app-button>

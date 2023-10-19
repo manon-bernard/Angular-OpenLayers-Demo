@@ -1,2 +1,5 @@
-<app-map [spots]="spotList"></app-map>
+<app-map
+  [spots]="spotList"
+  (mapClicked)="onMapClick($event)"
+></app-map>
 <app-spot [spot]="selectedSpot"></app-spot>

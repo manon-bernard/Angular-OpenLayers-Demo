@@ -7,5 +7,8 @@ import { Spot } from 'src/app/models/spot';
   styleUrls: ['./spot.component.css']
 })
 export class SpotDetailsComponent {
-  @Input() spot!: Spot;
+  /**
+   * Spot element for which displaying the informations.
+   */
+  @Input() spot: Spot | undefined;
 }
