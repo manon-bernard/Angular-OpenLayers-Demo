@@ -13,7 +13,6 @@ import { Spot } from 'src/app/models/spot';
 })
 export class MapComponent implements OnInit{
 
-
   @Input() spots!: Spot[];
 
   // Creating a private property named mapService, injecting the MapService class.

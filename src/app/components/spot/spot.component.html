@@ -1,28 +1,29 @@
-<div class="detail__container">
+<div
+  class="detail__container"
+  *ngIf="spot"
+>
 
   <section class="detail">
     <header class="detail__header">
-      <h2 class="spot__title">Nom du spot</h2>
-      <p class="spot__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur, eos nostrum
-        voluptatem quasi aut perspiciatis ad quam temporibus libero iusto laboriosam ipsum nobis magni unde sit expedita
-        voluptatum neque aspernatur!</p>
+      <h2 class="spot__title">{{spot.name}}</h2>
+      <p class="spot__description">{{spot.description}}</p>
     </header>
     <main class="detail__content">
       <div class="spot__tags">
         <ul class="spot__tag-list">
-          <app-tag tagName='Nature'></app-tag>
-          <app-tag tagName='Monument'></app-tag>
-          <app-tag tagName='Curiosité'></app-tag>
-          <app-tag tagName='Art'></app-tag>
+          <app-tag
+            *ngFor="let tag of spot.tagList"
+            [tagName]="tag"
+          ></app-tag>
         </ul>
       </div>
       <div class="spot__infos">
-        <p class="spot__info"><span class="spot__category">Date d'ajout: </span>25/01/2021</p>
-        <p class="spot__info"><span class="spot__category">Ajouté par: </span>Username</p>
+        <p class="spot__info"><span class="spot__category">Date d'ajout: </span>{{spot.date}}</p>
+        <p class="spot__info"><span class="spot__category">Ajouté par: </span>{{spot.username}}</p>
       </div>
     </main>
   </section>
-  <app-comment-list></app-comment-list>
+  <app-comment-list [comments]="spot.commentList"></app-comment-list>
 
 
 </div>

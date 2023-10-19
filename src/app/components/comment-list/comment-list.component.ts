@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { UserComment } from '../../models/user-comment'
 
 @Component({
@@ -10,7 +10,7 @@ export class CommentListComponent {
   /**
    * List of user comments to display, for the selected spot.
    */
-  comments : UserComment[];
+  @Input() comments! : UserComment[];
 
   constructor(){
     this.comments = [

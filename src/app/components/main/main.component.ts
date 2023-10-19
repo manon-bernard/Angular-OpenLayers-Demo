@@ -9,6 +9,7 @@ import { UserComment } from 'src/app/models/user-comment';
 })
 export class MainComponent {
   spotList!: Spot[];
+  selectedSpot!: Spot;
 
   constructor(){
     this.spotList = [

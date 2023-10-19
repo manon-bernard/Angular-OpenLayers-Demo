@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Spot } from 'src/app/models/spot';
 
 @Component({
   selector: 'app-spot',
@@ -6,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./spot.component.css']
 })
 export class SpotDetailsComponent {
-
+  @Input() spot!: Spot;
 }
