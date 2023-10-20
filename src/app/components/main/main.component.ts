@@ -33,6 +33,8 @@ export class MainComponent {
         // If there is not existing spot, set the property as undefined.
         this.selectedSpot = undefined;
       }
+
+      console.log(spotData, this.selectedSpot);
     });
   }
 }

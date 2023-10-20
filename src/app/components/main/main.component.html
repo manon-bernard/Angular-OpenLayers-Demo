@@ -2,4 +2,7 @@
   [spots]="spotList"
   (mapClicked)="onMapClick($event)"
 ></app-map>
-<app-spot [spot]="selectedSpot"></app-spot>
+<app-spot
+  [spot]="selectedSpot"
+  *ngIf="selectedSpot"
+></app-spot>

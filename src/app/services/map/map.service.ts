@@ -229,9 +229,9 @@ export class MapService {
         // Extract Point Feature Data
         const name = feature!.get('name');
         const coordinates = featurePoint!.getCoordinates();
-        name && coordinates
-          ? (this.spot = { name, coordinates })
-          : (this.spot = undefined);
+        name ? (this.spot = { name, coordinates }) : (this.spot = undefined);
+      } else {
+        this.spot = undefined;
       }
     });
   }
