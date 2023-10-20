@@ -11,87 +11,87 @@ import VectorLayer from 'ol/layer/Vector';
 import VectorSource from 'ol/source/Vector';
 import { Feature, Overlay } from 'ol';
 import Point from 'ol/geom/Point';
-import {Circle, Fill, Stroke, Style} from 'ol/style.js';
+import { Circle, Fill, Stroke, Style } from 'ol/style.js';
 import { Spot } from 'src/app/models/spot';
 import { Geometry } from 'ol/geom';
 
-  // The map service is managing the whole logic:
-  // - Displaying the map with the user coordinates/marker
-  // - Tracking geolocation changes and updating the map.
-
+// The map service is managing the whole logic:
+// - Displaying the map with the user coordinates/marker
+// - Tracking geolocation changes and updating the map.
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class MapService {
+  /**
+   * Map object.
+   */
+  private map!: Map;
+  /**
+   * User location, array of number. Default to Paris coordinates.
+   */
+  private userLocation: Coordinate = [2.349014, 48.864716];
+  /**
+   * Layer for positionning the user marker on the map.
+   */
+  private userMarkerLayer!: VectorLayer<VectorSource>;
+  /**
+   * Geolocation object, that will allow to get the user position.
+   */
+  private geolocation!: Geolocation;
+  /**
+   * Layer for positionning the spots marker on the map.
+   */
+  private spotLayer!: VectorLayer<VectorSource>;
+  private spotSource!: VectorSource;
+  /**
+   * Spot selected.
+   */
+  spot!: { name: string; coordinates: Coordinate } | undefined;
 
-
-    /**
-     * Map object.
-     */
-    private map!: Map;
-    /**
-     * User location, array of number. Default to Paris coordinates.
-     */
-    private userLocation: Coordinate = [2.349014, 48.864716];
-    /**
-     * Layer for positionning the user marker on the map.
-     */
-    private userMarkerLayer!: VectorLayer<VectorSource>;
-    /**
-     * Geolocation object, that will allow to get the user position.
-     */
-    private geolocation!: Geolocation
-    /**
-     * Layer for positionning the spots marker on the map.
-     */
-    private spotLayer!: VectorLayer<VectorSource>
-    /**
-     * Spot selected.
-     */
-    spot!: {name:string, coordinates: Coordinate} | undefined
+  newSpotCoordinate: Coordinate | undefined;
 
   /**
    * Method responsible for creating the Map object and displaying it in the Map component.
    */
   createMap(): void {
     this.map = new Map({
-      target:'ol-map',
+      target: 'ol-map',
       view: new View({
         center: this.userLocation,
         zoom: 13,
       }),
-      layers:[
+      layers: [
         new TileLayer({
           source: new OSM(),
-        })
-      ]
-    })
+        }),
+      ],
+    });
   }
 
   /**
    * Method responsible for Map Center coordinates update.
    * @param coordinates Array of number / Coordinates, representing the current user location.
    */
-  private updateMapCenter(coordinates: Coordinate):void{
+  private updateMapCenter(coordinates: Coordinate): void {
     this.map.getView().setCenter(coordinates);
   }
 
   /**
    * Method responsible for updating both user location property (on change) and user marker location when the user geolocation changes.
    */
-   updateUserLocation() {
-
+  updateUserLocation() {
     // Initialize a new object geolocation, an allow user position tracking.
     this.geolocation = new Geolocation({
-      tracking:true,
-    })
+      tracking: true,
+    });
 
     // Listen to user position changes, and if so triggers a callback that get the user location (coordinates)
     // - If user location fetching respond with an error or undefined, set the user location to Paris.
     // - If user location is defined, set the user location property to that value and set the marker position accordingly.
-    this.geolocation.on('change:position', () => {
-      const userLocation: Coordinate | undefined = this.geolocation.getPosition();
+    this.geolocation.once('change:position', () => {
+      const userLocation: Coordinate | undefined =
+        this.geolocation.getPosition();
 
       //! To rework.
       if (userLocation) {
@@ -111,10 +111,9 @@ export class MapService {
    * @param coordinates Array of number / Coordinates, representing the current user location.
    */
   private updateUserMarker(coordinates: Coordinate) {
-
     // Reset User Marker Layer (remove previous marker)
     if (this.userMarkerLayer) {
-    this.map.removeLayer(this.userMarkerLayer);
+      this.map.removeLayer(this.userMarkerLayer);
     }
 
     // Initialize a new vector layer for displaying User Marker, set features as Point, define marker style.
@@ -122,9 +121,10 @@ export class MapService {
       source: new VectorSource({
         features: [
           new Feature({
-            geometry: new Point(coordinates)
-          })
-        ]}),
+            geometry: new Point(coordinates),
+          }),
+        ],
+      }),
       style: new Style({
         image: new Circle({
           radius: 6,
@@ -135,8 +135,8 @@ export class MapService {
             color: '#fff',
             width: 2,
           }),
-        })
-      })
+        }),
+      }),
     });
 
     // Update the layer with the newly created marker.
@@ -151,19 +151,19 @@ export class MapService {
    * @param spots Array of objects representing the lists of spots to display on the map.
    */
   showSpots(spots: Spot[]) {
-
-    const featuresList: Feature<Geometry>[] = []
+    const featuresList: Feature<Geometry>[] = [];
     spots.forEach((spot) => {
-      const newSpot = new Feature ({geometry: new Point(spot.coordinates)})
-      featuresList.push(newSpot)
+      const newSpot = new Feature({ geometry: new Point(spot.coordinates) });
+      featuresList.push(newSpot);
       newSpot.setProperties({
         name: spot.name,
-      })
-    })
+      });
+    });
 
     const spotLayer = new VectorLayer({
       source: new VectorSource({
-        features: featuresList}),
+        features: featuresList,
+      }),
       style: new Style({
         image: new Circle({
           radius: 6,
@@ -174,14 +174,16 @@ export class MapService {
             color: '#fff',
             width: 2,
           }),
-        })
-      })
+        }),
+      }),
     });
 
-
     this.spotLayer = spotLayer;
+    this.spotSource = spotLayer.getSource()!;
+    console.log(this.spotSource.getFeatures());
+
     this.map.addLayer(this.spotLayer);
-    this.map.getView()
+    this.map.getView();
   }
 
   /**
@@ -189,40 +191,54 @@ export class MapService {
    * Return an object with the spot data, if a feature is available near the pixel clicked.
    */
   listenSpotOnClick() {
-
-    this.map.on('click', (event)=>{
-
+    this.map.on('click', (event) => {
       // Check available features on the pixel clicked:
       // - Return undefined if no marker
       // - Return a Feature<Point> object if a marker is there.
-      const feature: Feature<Point> | undefined = this.map.forEachFeatureAtPixel(event.pixel, (feature) => feature as Feature<Point>)
+      const feature: Feature<Point> | undefined =
+        this.map.forEachFeatureAtPixel(
+          event.pixel,
+          (feature) => feature as Feature<Point>
+        );
 
       if (feature) {
-
         // Extract the Point Object, to allow fetching of coordinates.
-        const featurePoint : Point | undefined  = feature!.getGeometry();
+        const featurePoint: Point | undefined = feature!.getGeometry();
 
-          // Extract Point Feature Data
-          const name = feature!.get('name');
-          const coordinates = featurePoint!.getCoordinates();
-          name && coordinates ? this.spot = {name, coordinates}: this.spot = undefined;
+        // Extract Point Feature Data
+        const name = feature!.get('name');
+        const coordinates = featurePoint!.getCoordinates();
+        name && coordinates
+          ? (this.spot = { name, coordinates })
+          : (this.spot = undefined);
       }
-    })
+    });
   }
 
   /**
    * Method allowinf to get back the spot clicked data or undefined.
    * @returns Spot selected informations (name, coordinates)
    */
-  getSelectedSpot(){
-    return this.spot
+  getSelectedSpot() {
+    return this.spot;
   }
 
-  listenSpotOnDblClick(){
+  listenSpotOnDblClick() {
     this.map.on('dblclick', (event) => {
-      console.log('Way to add a new spot')
-    })
+      const coordinates = this.map.getCoordinateFromPixel(event.pixel);
+      this.newSpotCoordinate = coordinates;
+    });
   }
 
+  getNewSpotCoordinates() {
+    return this.newSpotCoordinate;
+  }
 
+  createNewSpot(data: Spot) {
+    const newSpot = new Feature({ geometry: new Point(data.coordinates) });
+    newSpot.setProperties({
+      name: data.name,
+    });
+    this.spotSource.addFeature(newSpot);
+  }
 }

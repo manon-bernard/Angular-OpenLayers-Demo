@@ -2,8 +2,24 @@
   <div
     id="ol-map"
     (click)="onClick()"
+    (dblclick)="onDoubleClick()"
   ></div>
-  <div class="map__controls">
-    <app-button name='Recentrer'></app-button>
+  <div
+    class="map__controls"
+    *ngIf="!isAddFormShown"
+  >
+    <app-button
+      name='Ajouter un spot'
+      (clicked)="onClickAddSpot()"
+      *ngIf="!isAddFormShown"
+    ></app-button>
+    <!-- <app-button name='Recentrer'></app-button> -->
   </div>
+  <app-add-spot
+    *ngIf="isAddFormShown"
+    [lat]="newSpotLatitude"
+    [long]="newSpotLongitude"
+    (clickedSubmit)="onClickSubmitSpot($event)"
+    (clickedCancel)="onClickCancel()"
+  ></app-add-spot>
 </div>

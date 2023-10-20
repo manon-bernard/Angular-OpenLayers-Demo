@@ -1,11 +1,11 @@
-<div
-  class="add-spot-container"
-  *ngIf="allowAddSpot"
->
+<div class="add-spot-container">
 
   <h2>Ajouter un spot</h2>
   <section class="add-spot__form">
-    <form>
+    <form
+      #form="ngForm"
+      (ngSubmit)="onClickSubmit(form)"
+    >
       <fieldset>
         <legend class="spot__coordinates hidden">Coordonnées</legend>
         <label
@@ -17,6 +17,7 @@
           name="lat"
           id="lat"
           class="spot__input"
+          [(ngModel)]="lat"
         >
         <label
           for="long"
@@ -27,6 +28,7 @@
           name="long"
           id="long"
           class="spot__input"
+          [(ngModel)]="long"
         >
       </fieldset>
       <fieldset>
@@ -38,9 +40,10 @@
         >Nom</label>
         <input
           type="text"
-          name="long"
-          id="long"
+          name="name"
+          id="name"
           class="spot__label"
+          ngModel
         >
         <label
           for="description"
@@ -51,66 +54,76 @@
           id="description"
           rows="5"
           class="spot__textarea"
+          ngModel
         ></textarea>
         <label
           for="tags"
           class="spot__label"
-        >Tags</label>
-        <label
-          class="tag__label"
-          for="tag-art"
-        ><input
-            type="checkbox"
-            id="tag-art"
-            name="tags"
-            value="art"
-          ><app-tag tagName="Art"></app-tag></label>
-        <label
-          class="tag__label"
-          for="tag-monument"
-        ><input
-            class="tag__input"
-            type="checkbox"
-            id="tag-monument"
-            name="tags"
-            value="monument"
-          ><app-tag tagName="Monument"></app-tag></label>
-        <label
-          for="tag-nature"
-          class="tag__label"
-        ><input
-            type="checkbox"
-            class="tag__input"
-            id="tag-nature"
-            name="tags"
-            value="nature"
-          ><app-tag tagName="Nature"></app-tag></label>
-        <label
-          for="tag-curiosite"
-          class="tag__label"
-        ><input
-            type="checkbox"
-            class="tag__input"
-            id="tag-curiosite"
-            name="tags"
-            value="curiosite"
-          ><app-tag tagName="Curiosité"></app-tag></label>
-        <label
-          for="tag-autre"
-          class="tag__label"
-        ><input
-            type="checkbox"
-            class="tag__input"
-            id="tag-autre"
-            name="tags"
-            value="autre"
-          ><app-tag tagName="Autre"></app-tag></label>
+        >Tags
+          <label
+            class="tag__label"
+            for="tag-art"
+          ><input
+              type="checkbox"
+              id="tag-art"
+              name="art"
+              ngModel
+            ><app-tag tagName="Art"></app-tag></label>
+          <label
+            class="tag__label"
+            for="tag-monument"
+          ><input
+              class="tag__input"
+              type="checkbox"
+              id="tag-monument"
+              name="monument"
+              ngModel
+            ><app-tag tagName="Monument"></app-tag></label>
+          <label
+            for="tag-nature"
+            class="tag__label"
+          ><input
+              type="checkbox"
+              class="tag__input"
+              id="tag-nature"
+              name="nature"
+              ngModel
+            ><app-tag tagName="Nature"></app-tag></label>
+          <label
+            for="tag-curiosite"
+            class="tag__label"
+          ><input
+              type="checkbox"
+              class="tag__input"
+              id="tag-curiosite"
+              name="curiosite"
+              ngModel
+            ><app-tag tagName="Curiosité"></app-tag></label>
+          <label
+            for="tag-autre"
+            class="tag__label"
+          ><input
+              type="checkbox"
+              class="tag__input"
+              id="tag-autre"
+              name="autre"
+              ngModel
+            ><app-tag tagName="Autre"></app-tag></label></label>
       </fieldset>
-      <input
-        type="submit"
-        class="add-spot__submit"
-        value="Ajouter"
-      >
+      <div class="form__controls">
+        <input
+          type="submit"
+          class="add-spot__submit"
+          value="Ajouter"
+        >
+        <button
+          type="button"
+          class="add-spot__cancel"
+          value="Cancel"
+          (click)="onClickCancel()"
+        >Annuler</button>
+      </div>
+
     </form>
 
   </section>
