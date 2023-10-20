@@ -46,6 +46,7 @@ export class AddSpotComponent {
   onClickSubmit(form: NgForm) {
     const data = this.getFormData(form);
     this.clickedSubmit.emit(data);
+    form.resetForm();
   }
 
   onClickCancel() {

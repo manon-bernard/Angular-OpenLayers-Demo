@@ -1,22 +1,38 @@
-import { Component, Input } from '@angular/core';
-import { UserComment } from '../../models/user-comment'
+import {
+  Component,
+  EventEmitter,
+  Input,
+  Output,
+  ViewChild,
+} from '@angular/core';
+import { UserComment } from '../../models/user-comment';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-comment-list',
   templateUrl: './comment-list.component.html',
-  styleUrls: ['./comment-list.component.css']
+  styleUrls: ['./comment-list.component.css'],
 })
 export class CommentListComponent {
   /**
    * List of user comments to display, for the selected spot.
    */
-  @Input() comments! : UserComment[];
+  @Input() comments!: UserComment[];
+  @Output() clickedSubmit = new EventEmitter();
 
-  constructor(){
-    this.comments = [
-      new UserComment('Anonymous', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, dolore. Optio aperiam iste ipsa fugit nihil itaque consequuntur voluptas perspiciatis, dolores, quibusdam quaerat, eum officia molestias maxime veritatis molestiae error?', '2023-10-05'),
-      new UserComment('John Doe', 'lorem ipsum lorem', '2023-06-05'),
-      new UserComment('Jane Doe', 'lorem ipsum lorem ispsum m lorem ipsum', '2023-03-05'),
-    ]
+  @ViewChild('form', { static: true }) form: any;
+
+  constructor() {}
+
+  getFormData(form: NgForm) {
+    const { comment } = form.value;
+    let newComment = comment;
+    return newComment;
+  }
+
+  onClickSubmit(form: NgForm) {
+    const data = this.getFormData(form);
+    this.clickedSubmit.emit(data);
+    form.resetForm();
   }
 }

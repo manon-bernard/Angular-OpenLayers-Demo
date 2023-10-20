@@ -57,6 +57,8 @@ export class MapService {
    */
   newSpotCoordinate: Coordinate | undefined;
 
+  private spotList!: Spot[];
+
   /**
    * Method responsible for creating the Map object and displaying it in the Map component.
    */
@@ -158,16 +160,13 @@ export class MapService {
    * @param spots Array of objects representing the lists of spots to display on the map.
    */
   showSpots() {
-    // Init spotList as an empty array.
-    let spotList = [] as Spot[];
-
     // Async request for spot list.
     this.spotsService.getSpots().subscribe((spots) => {
-      spotList = spots;
+      this.spotList = spots;
 
       // FeaturesList creation.
       const featuresList: Feature<Geometry>[] = [];
-      spotList.forEach((spot) => {
+      this.spotList.forEach((spot) => {
         const newSpot = new Feature({ geometry: new Point(spot.coordinates) });
         featuresList.push(newSpot);
         newSpot.setProperties({
@@ -262,12 +261,18 @@ export class MapService {
    * @param data Data reovered from submitting the form.
    */
   createNewSpot(spots: Spot[], data: Spot) {
-    const newSpot = new Feature({ geometry: new Point(data.coordinates) });
-    newSpot.setProperties({
-      name: data.name,
-    });
-    this.spotSource.addFeature(newSpot);
-
-    // ! Fix the new spot click (update spotList)
+    if (data.name) {
+      if (data.coordinates) {
+        const newSpot = new Feature({ geometry: new Point(data.coordinates) });
+        newSpot.setProperties({
+          name: data.name,
+        });
+        console.log('data:', data);
+        this.spotSource.addFeature(newSpot);
+        this.spotsService
+          .addSpot(data)
+          .subscribe(() => this.spotList.push(data));
+      }
+    }
   }
 }

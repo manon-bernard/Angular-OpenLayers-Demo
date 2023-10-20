@@ -10,7 +10,23 @@
       ></app-comment-item>
     </ul>
     <div class="comments__controls">
-      <app-button name="Ajouter un commentaire"></app-button>
+      <form
+        #form="ngForm"
+        (ngSubmit)="onClickSubmit(form)"
+      >
+        <input
+          type="text"
+          class="input__text"
+          name="comment"
+          ngModel
+        >
+        <input
+          type="submit"
+          value="Ajouter un commentaire"
+          class="input__submit"
+        >
+      </form>
     </div>
   </div>
+
 </section>

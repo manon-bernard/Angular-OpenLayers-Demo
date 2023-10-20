@@ -23,7 +23,10 @@
       </div>
     </main>
   </section>
-  <app-comment-list [comments]="spot.commentList"></app-comment-list>
+  <app-comment-list
+    [comments]="spot.commentList"
+    (clickedSubmit)="onSubmitNewComment($event)"
+  ></app-comment-list>
 
 
 </div>

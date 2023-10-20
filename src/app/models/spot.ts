@@ -1,5 +1,5 @@
-import { Coordinate } from "ol/coordinate";
-import { UserComment } from "./user-comment";
+import { Coordinate } from 'ol/coordinate';
+import { UserComment } from './user-comment';
 
 /**
  * Class for spots data.
@@ -8,11 +8,15 @@ export class Spot {
   /**
    * Name of the location.
    */
+  public id: number;
+  /**
+   * Name of the location.
+   */
   public name: string;
-   /**
+  /**
    * Description text content.
    */
-   public coordinates: Coordinate;
+  public coordinates: Coordinate;
   /**
    * Description text content.
    */
@@ -20,7 +24,7 @@ export class Spot {
   /**
    * User who added the spot.
    */
-    public username: string;
+  public username: string;
   /**
    * Date on which the spot was added.
    */
@@ -32,27 +36,26 @@ export class Spot {
   /**
    * List of comments left about this spot.
    */
-  public commentList: UserComment[]
+  public commentList: UserComment[];
 
   constructor(
     coordinates: Coordinate,
     name: string,
-    description:string,
+    description: string,
     username: string,
     date: string,
     tagList: tag[],
-    commentList: UserComment[]
-    )
-    {
-      this.coordinates = coordinates;
-      this.name = name;
-      this.description = description;
-      this.username = username;
-      this.date = date;
-      this.commentList = commentList;
-      this.tagList = tagList;
+    commentList: UserComment[],
+    id: number
+  ) {
+    (this.id = id), (this.coordinates = coordinates);
+    this.name = name;
+    this.description = description;
+    this.username = username;
+    this.date = date;
+    this.commentList = commentList;
+    this.tagList = tagList;
   }
 }
 
-
-type tag = 'monument'|'art'|'curiosité'|'nature'|'autre'
+type tag = 'monument' | 'art' | 'curiosité' | 'nature' | 'autre';
