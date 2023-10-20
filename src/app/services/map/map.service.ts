@@ -24,6 +24,7 @@ import { SpotsService } from '../spots/spots.service';
   providedIn: 'root',
 })
 export class MapService {
+  // Open Layer
   /**
    * Map object.
    */
@@ -48,15 +49,19 @@ export class MapService {
    * Source for positionning the spots marker on the map.
    */
   private spotSource!: VectorSource;
+
+  // Spot Data
   /**
-   * Spot selected.
+   * Spot currently selected.
    */
   spot!: { name: string; coordinates: Coordinate } | undefined;
   /**
    * Spot coordinate when adding a new spot.
    */
   newSpotCoordinate: Coordinate | undefined;
-
+  /**
+   * List of spots to show on the map.
+   */
   private spotList!: Spot[];
 
   /**
@@ -174,6 +179,7 @@ export class MapService {
         });
       });
 
+      // Layer creation.
       const spotLayer = new VectorLayer({
         source: new VectorSource({
           features: featuresList,
@@ -195,6 +201,7 @@ export class MapService {
       this.spotLayer = spotLayer;
       this.spotSource = spotLayer.getSource()!;
 
+      // Add new layer to the map.
       this.map.addLayer(this.spotLayer);
       this.map.getView();
     });
@@ -263,12 +270,15 @@ export class MapService {
   createNewSpot(spots: Spot[], data: Spot) {
     if (data.name) {
       if (data.coordinates) {
+        // If condition to prevent submitting empty spot.
         const newSpot = new Feature({ geometry: new Point(data.coordinates) });
         newSpot.setProperties({
           name: data.name,
         });
-        console.log('data:', data);
+
+        // Adding spot to the map
         this.spotSource.addFeature(newSpot);
+        // Adding spot to the db.
         this.spotsService
           .addSpot(data)
           .subscribe(() => this.spotList.push(data));

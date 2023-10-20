@@ -4,7 +4,7 @@ import { UserComment } from 'src/app/models/user-comment';
 @Component({
   selector: 'app-comment-item',
   templateUrl: './comment-item.component.html',
-  styleUrls: ['./comment-item.component.css']
+  styleUrls: ['./comment-item.component.css'],
 })
 export class CommentItemComponent {
   /**
@@ -12,7 +12,7 @@ export class CommentItemComponent {
    */
   @Input() comment: UserComment;
 
-  constructor(){
-    this.comment = new UserComment('', '', '')
+  constructor() {
+    this.comment = new UserComment('', '', '');
   }
 }

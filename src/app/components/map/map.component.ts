@@ -70,6 +70,9 @@ export class MapComponent implements OnInit {
     this.mapClicked.emit(spot);
   }
 
+  /**
+   * Method called whenever doucle clicking on the map, to get the coordinates.
+   */
   onDoubleClick() {
     const coordinates = this.mapService.getNewSpotCoordinates();
     if (this.isAddFormShown) {
@@ -87,10 +90,17 @@ export class MapComponent implements OnInit {
     this.isAddFormShown = true;
   }
 
+  /**
+   * Method triggered when clicking cancel on the component.
+   */
   onClickCancel() {
     this.isAddFormShown = false;
   }
 
+  /**
+   * Method called when submitting the add-spot form
+   * @param data Spot Data.
+   */
   onClickSubmitSpot(data: Spot) {
     this.mapService.createNewSpot(this.spots, data);
     this.isAddFormShown = false;

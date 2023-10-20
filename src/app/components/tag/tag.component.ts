@@ -3,10 +3,9 @@ import { Component, Input } from '@angular/core';
 @Component({
   selector: 'app-tag',
   templateUrl: './tag.component.html',
-  styleUrls: ['./tag.component.css']
+  styleUrls: ['./tag.component.css'],
 })
 export class TagComponent {
-
   /**
    * Text displayed in the tag.
    */
@@ -21,25 +20,25 @@ export class TagComponent {
    * Method returning the button background color as a string (hexadecimal color code), depending on the tagName value.
    * @returns Button background color
    */
-  getBackgroundColor(){
+  getBackgroundColor() {
     switch (this.tagName) {
       case 'Art':
-        this.backgroundColor = "#3C38A0"
-      break;
+        this.backgroundColor = '#3C38A0';
+        break;
       case 'Monument':
-        this.backgroundColor = "#8E4619"
-      break;
+        this.backgroundColor = '#8E4619';
+        break;
       case 'Nature':
-        this.backgroundColor = "#5E8E17"
-      break;
+        this.backgroundColor = '#5E8E17';
+        break;
       case 'Curiosité':
-        this.backgroundColor = "#CB3E82"
-      break;
+        this.backgroundColor = '#CB3E82';
+        break;
       default:
-        this.backgroundColor = "#383838"
-      break;
+        this.backgroundColor = '#383838';
+        break;
     }
 
-    return this.backgroundColor
+    return this.backgroundColor;
   }
 }

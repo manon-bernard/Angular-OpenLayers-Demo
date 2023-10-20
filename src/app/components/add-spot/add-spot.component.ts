@@ -15,13 +15,30 @@ import { UserComment } from 'src/app/models/user-comment';
   styleUrls: ['./add-spot.component.css'],
 })
 export class AddSpotComponent {
+  /**
+   * Event emitted whenever clicking submit.
+   */
   @Output() clickedSubmit = new EventEmitter();
+  /**
+   * Event emitted whenever clicking cancel.
+   */
   @Output() clickedCancel = new EventEmitter();
+  /**
+   * Latitude
+   */
   @Input() lat!: number;
+  /**
+   * Longitude
+   */
   @Input() long!: number;
 
   @ViewChild('form', { static: true }) form: any;
 
+  /**
+   * Method to get the form data.
+   * @param form Form Element.
+   * @returns Form Data Object.
+   */
   getFormData(form: NgForm) {
     const { art, monument, curiosite, nature, autre } = form.value;
     let tagList = [];
@@ -43,12 +60,19 @@ export class AddSpotComponent {
     return data;
   }
 
+  /**
+   * Method to use when submitting the form data.
+   * @param form Form Element.
+   */
   onClickSubmit(form: NgForm) {
     const data = this.getFormData(form);
     this.clickedSubmit.emit(data);
     form.resetForm();
   }
 
+  /**
+   * Method clicked whenever clicking cancel, while displaying the add-spot component.
+   */
   onClickCancel() {
     this.clickedCancel.emit();
   }
