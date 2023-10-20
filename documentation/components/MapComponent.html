@@ -432,8 +432,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="69"
-                            class="link-to-prism">src/app/components/map/map.component.ts:69</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="68"
+                            class="link-to-prism">src/app/components/map/map.component.ts:68</a></div>
                 </td>
             </tr>
 
@@ -473,8 +473,8 @@ Event Emitter.</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="87"
-                            class="link-to-prism">src/app/components/map/map.component.ts:87</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="89"
+                            class="link-to-prism">src/app/components/map/map.component.ts:89</a></div>
                 </td>
             </tr>
 
@@ -512,14 +512,16 @@ Event Emitter.</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="91"
-                            class="link-to-prism">src/app/components/map/map.component.ts:91</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="96"
+                            class="link-to-prism">src/app/components/map/map.component.ts:96</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Method triggered when clicking cancel on the component.</p>
+</div>
 
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -549,14 +551,16 @@ Event Emitter.</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="95"
-                            class="link-to-prism">src/app/components/map/map.component.ts:95</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="104"
+                            class="link-to-prism">src/app/components/map/map.component.ts:104</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Method called when submitting the add-spot form</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -567,6 +571,7 @@ Event Emitter.</p>
                                     <td>Name</td>
                                     <td>Type</td>
                                     <td>Optional</td>
+                                    <td>Description</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -581,6 +586,10 @@ Event Emitter.</p>
                                     </td>
 
 
+                                    <td>
+                                        <p>Spot Data.</p>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -618,14 +627,16 @@ Event Emitter.</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="74"
-                            class="link-to-prism">src/app/components/map/map.component.ts:74</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="76"
+                            class="link-to-prism">src/app/components/map/map.component.ts:76</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Method called whenever doucle clicking on the map, to get the coordinates.</p>
+</div>
 
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -823,11 +834,10 @@ export class MapComponent implements OnInit {
     this.mapService.updateUserLocation();
 
     // Existing spots Init.
-    this.mapService.showSpots(this.spots);
+    this.mapService.showSpots();
 
     // Clicks Listener.
     this.mapService.listenSpotOnClick();
-
     this.mapService.listenSpotOnDblClick();
   }
 
@@ -841,6 +851,9 @@ export class MapComponent implements OnInit {
     this.mapClicked.emit(spot);
   }
 
+  /**
+   * Method called whenever doucle clicking on the map, to get the coordinates.
+   */
   onDoubleClick() {
     const coordinates &#x3D; this.mapService.getNewSpotCoordinates();
     if (this.isAddFormShown) {
@@ -858,12 +871,18 @@ export class MapComponent implements OnInit {
     this.isAddFormShown &#x3D; true;
   }
 
+  /**
+   * Method triggered when clicking cancel on the component.
+   */
   onClickCancel() {
     this.isAddFormShown &#x3D; false;
   }
 
+  /**
+   * Method called when submitting the add-spot form
+   * @param data Spot Data.
+   */
   onClickSubmitSpot(data: Spot) {
-    console.log(data);
     this.mapService.createNewSpot(this.spots, data);
     this.isAddFormShown &#x3D; false;
   }

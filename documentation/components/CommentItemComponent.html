@@ -215,7 +215,7 @@ import { UserComment } from &#x27;src/app/models/user-comment&#x27;;
 @Component({
   selector: &#x27;app-comment-item&#x27;,
   templateUrl: &#x27;./comment-item.component.html&#x27;,
-  styleUrls: [&#x27;./comment-item.component.css&#x27;]
+  styleUrls: [&#x27;./comment-item.component.css&#x27;],
 })
 export class CommentItemComponent {
   /**
@@ -223,8 +223,8 @@ export class CommentItemComponent {
    */
   @Input() comment: UserComment;
 
-  constructor(){
-    this.comment &#x3D; new UserComment(&#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;)
+  constructor() {
+    this.comment &#x3D; new UserComment(&#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;);
   }
 }
 </code></pre>

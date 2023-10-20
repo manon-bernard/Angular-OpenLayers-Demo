@@ -128,6 +128,20 @@
     <table class="table table-sm table-bordered index-table">
         <tbody>
 
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#onSubmitNewComment" >onSubmitNewComment</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
 
                 <tr>
                     <td class="col-md-4">
@@ -151,6 +165,54 @@
     </table>
 </section>
 
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(spotsService: <a href="../injectables/SpotsService.html" target="_self">SpotsService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/components/spot/spot.component.ts:15</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>spotsService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/SpotsService.html" target="_self" >SpotsService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
 
     <section data-compodoc="block-inputs">
     <h3 id="inputs">Inputs</h3>
@@ -170,7 +232,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/components/spot/spot.component.ts:13</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/components/spot/spot.component.ts:15</a></div>
                             </td>
                         </tr>
                 <tr>
@@ -185,7 +247,81 @@
 
 
 
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onSubmitNewComment"></a>
+                    <span class="name">
+                        <span ><b>onSubmitNewComment</b></span>
+                        <a href="#onSubmitNewComment"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onSubmitNewComment(newComment: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
 
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="19"
+                            class="link-to-prism">src/app/components/spot/spot.component.ts:19</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>newComment</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
 
 </div>
 
@@ -193,17 +329,37 @@
     <div class="tab-pane fade  tab-source-code" id="source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, Input } from &#x27;@angular/core&#x27;;
 import { Spot } from &#x27;src/app/models/spot&#x27;;
+import { UserComment } from &#x27;src/app/models/user-comment&#x27;;
+import { SpotsService } from &#x27;src/app/services/spots/spots.service&#x27;;
 
 @Component({
   selector: &#x27;app-spot&#x27;,
   templateUrl: &#x27;./spot.component.html&#x27;,
-  styleUrls: [&#x27;./spot.component.css&#x27;]
+  styleUrls: [&#x27;./spot.component.css&#x27;],
 })
 export class SpotDetailsComponent {
   /**
    * Spot element for which displaying the informations.
    */
   @Input() spot: Spot | undefined;
+
+  constructor(private spotsService: SpotsService) {}
+
+  onSubmitNewComment(newComment: string) {
+    if (newComment) {
+      const newCommentData: UserComment &#x3D; {
+        name: &#x27;John Doe&#x27;,
+        text: newComment as string,
+        date: new Date().toLocaleDateString(),
+      };
+
+      const spotId &#x3D; this.spot!.id;
+      if (spotId) {
+        this.spot!.commentList.push(newCommentData as UserComment);
+        this.spotsService.updateSpot(this.spot!).subscribe();
+      }
+    }
+  }
 }
 </code></pre>
     </div>
@@ -234,7 +390,10 @@ export class SpotDetailsComponent {
       &lt;/div&gt;
     &lt;/main&gt;
   &lt;/section&gt;
-  &lt;app-comment-list [comments]&#x3D;&quot;spot.commentList&quot;&gt;&lt;/app-comment-list&gt;
+  &lt;app-comment-list
+    [comments]&#x3D;&quot;spot.commentList&quot;
+    (clickedSubmit)&#x3D;&quot;onSubmitNewComment($event)&quot;
+  &gt;&lt;/app-comment-list&gt;
 
 
 &lt;/div&gt;</code></pre>
@@ -244,9 +403,7 @@ export class SpotDetailsComponent {
                 <p class="comment">
                     <code>./spot.component.css</code>
                 </p>
-                <pre class="line-numbers"><code class="language-scss">
-
-.detail__container {
+                <pre class="line-numbers"><code class="language-scss">.detail__container {
   padding: 2rem;
   display: flex;
   flex-direction: column;
@@ -266,13 +423,12 @@ export class SpotDetailsComponent {
 .spot__tags {
   padding: 1rem 0;
 }
+
 .spot__tag-list {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
 }
-
-
 
 .spot__info {
   margin-bottom: 0.5rem;
@@ -281,7 +437,6 @@ export class SpotDetailsComponent {
 .spot__category {
   font-weight: bold;
 }
-
 </code></pre>
     </div>
 
@@ -310,7 +465,7 @@ export class SpotDetailsComponent {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div  class="detail__container"  *ngIf="spot">  <section class="detail">    <header class="detail__header">      <h2 class="spot__title">{{spot.name}}</h2>      <p class="spot__description">{{spot.description}}</p>    </header>    <main class="detail__content">      <div class="spot__tags">        <ul class="spot__tag-list">          <app-tag            *ngFor="let tag of spot.tagList"            [tagName]="tag"          ></app-tag>        </ul>      </div>      <div class="spot__infos">        <p class="spot__info"><span class="spot__category">Date d\'ajout: </span>{{spot.date}}</p>        <p class="spot__info"><span class="spot__category">Ajouté par: </span>{{spot.username}}</p>      </div>    </main>  </section>  <app-comment-list [comments]="spot.commentList"></app-comment-list></div></div>'
+        var COMPONENT_TEMPLATE = '<div><div  class="detail__container"  *ngIf="spot">  <section class="detail">    <header class="detail__header">      <h2 class="spot__title">{{spot.name}}</h2>      <p class="spot__description">{{spot.description}}</p>    </header>    <main class="detail__content">      <div class="spot__tags">        <ul class="spot__tag-list">          <app-tag            *ngFor="let tag of spot.tagList"            [tagName]="tag"          ></app-tag>        </ul>      </div>      <div class="spot__infos">        <p class="spot__info"><span class="spot__category">Date d\'ajout: </span>{{spot.date}}</p>        <p class="spot__info"><span class="spot__category">Ajouté par: </span>{{spot.username}}</p>      </div>    </main>  </section>  <app-comment-list    [comments]="spot.commentList"    (clickedSubmit)="onSubmitNewComment($event)"  ></app-comment-list></div></div>'
     var COMPONENTS = [{'name': 'AddSpotComponent', 'selector': 'app-add-spot'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'ButtonComponent', 'selector': 'app-button'},{'name': 'CommentItemComponent', 'selector': 'app-comment-item'},{'name': 'CommentListComponent', 'selector': 'app-comment-list'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'MainComponent', 'selector': 'app-main'},{'name': 'MapComponent', 'selector': 'app-map'},{'name': 'SpotDetailsComponent', 'selector': 'app-spot'},{'name': 'TagComponent', 'selector': 'app-tag'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'SpotDetailsComponent'};

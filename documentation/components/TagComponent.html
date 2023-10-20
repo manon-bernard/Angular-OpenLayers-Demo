@@ -203,7 +203,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/components/tag/tag.component.ts:13</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/components/tag/tag.component.ts:12</a></div>
                             </td>
                         </tr>
                 <tr>
@@ -243,8 +243,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="24"
-                            class="link-to-prism">src/app/components/tag/tag.component.ts:24</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="23"
+                            class="link-to-prism">src/app/components/tag/tag.component.ts:23</a></div>
                 </td>
             </tr>
 
@@ -298,7 +298,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/components/tag/tag.component.ts:18</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/components/tag/tag.component.ts:17</a></div>
                         </td>
                     </tr>
 
@@ -322,10 +322,9 @@
 @Component({
   selector: &#x27;app-tag&#x27;,
   templateUrl: &#x27;./tag.component.html&#x27;,
-  styleUrls: [&#x27;./tag.component.css&#x27;]
+  styleUrls: [&#x27;./tag.component.css&#x27;],
 })
 export class TagComponent {
-
   /**
    * Text displayed in the tag.
    */
@@ -340,26 +339,26 @@ export class TagComponent {
    * Method returning the button background color as a string (hexadecimal color code), depending on the tagName value.
    * @returns Button background color
    */
-  getBackgroundColor(){
+  getBackgroundColor() {
     switch (this.tagName) {
       case &#x27;Art&#x27;:
-        this.backgroundColor &#x3D; &quot;#3C38A0&quot;
-      break;
+        this.backgroundColor &#x3D; &#x27;#3C38A0&#x27;;
+        break;
       case &#x27;Monument&#x27;:
-        this.backgroundColor &#x3D; &quot;#8E4619&quot;
-      break;
+        this.backgroundColor &#x3D; &#x27;#8E4619&#x27;;
+        break;
       case &#x27;Nature&#x27;:
-        this.backgroundColor &#x3D; &quot;#5E8E17&quot;
-      break;
+        this.backgroundColor &#x3D; &#x27;#5E8E17&#x27;;
+        break;
       case &#x27;Curiosité&#x27;:
-        this.backgroundColor &#x3D; &quot;#CB3E82&quot;
-      break;
+        this.backgroundColor &#x3D; &#x27;#CB3E82&#x27;;
+        break;
       default:
-        this.backgroundColor &#x3D; &quot;#383838&quot;
-      break;
+        this.backgroundColor &#x3D; &#x27;#383838&#x27;;
+        break;
     }
 
-    return this.backgroundColor
+    return this.backgroundColor;
   }
 }
 </code></pre>

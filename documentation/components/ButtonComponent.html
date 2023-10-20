@@ -203,7 +203,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/components/button/button.component.ts:15</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/components/button/button.component.ts:13</a></div>
                             </td>
                         </tr>
                 <tr>
@@ -233,7 +233,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/app/components/button/button.component.ts:11</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">src/app/components/button/button.component.ts:9</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -266,14 +266,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="17"
-                            class="link-to-prism">src/app/components/button/button.component.ts:17</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="18"
+                            class="link-to-prism">src/app/components/button/button.component.ts:18</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Method trigger upon click event.</p>
+</div>
 
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -291,22 +293,23 @@
     <div class="tab-pane fade  tab-source-code" id="source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, EventEmitter, Input, Output } from &#x27;@angular/core&#x27;;
 
-
 @Component({
   selector: &#x27;app-button&#x27;,
   templateUrl: &#x27;./button.component.html&#x27;,
-  styleUrls: [&#x27;./button.component.css&#x27;]
+  styleUrls: [&#x27;./button.component.css&#x27;],
 })
 export class ButtonComponent {
-
-  @Output() clicked &#x3D; new EventEmitter()
+  @Output() clicked &#x3D; new EventEmitter();
   /**
    * Text displayed within the button.
    */
-  @Input() name &#x3D; &#x27;&#x27;
+  @Input() name &#x3D; &#x27;&#x27;;
 
-  onClick(){
-    this.clicked.emit()
+  /**
+   * Method trigger upon click event.
+   */
+  onClick() {
+    this.clicked.emit();
   }
 }
 </code></pre>
