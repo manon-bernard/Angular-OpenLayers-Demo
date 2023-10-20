@@ -43,12 +43,17 @@ export class MapService {
    * Layer for positionning the spots marker on the map.
    */
   private spotLayer!: VectorLayer<VectorSource>;
+  /**
+   * Source for positionning the spots marker on the map.
+   */
   private spotSource!: VectorSource;
   /**
    * Spot selected.
    */
   spot!: { name: string; coordinates: Coordinate } | undefined;
-
+  /**
+   * Spot coordinate when adding a new spot.
+   */
   newSpotCoordinate: Coordinate | undefined;
 
   /**
@@ -180,7 +185,6 @@ export class MapService {
 
     this.spotLayer = spotLayer;
     this.spotSource = spotLayer.getSource()!;
-    console.log(this.spotSource.getFeatures());
 
     this.map.addLayer(this.spotLayer);
     this.map.getView();
@@ -216,13 +220,16 @@ export class MapService {
   }
 
   /**
-   * Method allowinf to get back the spot clicked data or undefined.
+   * Method allowing to get back the spot clicked data or undefined.
    * @returns Spot selected informations (name, coordinates)
    */
   getSelectedSpot() {
     return this.spot;
   }
 
+  /**
+   * Method triggering an event listenner for double clicks on the existing map.
+   */
   listenSpotOnDblClick() {
     this.map.on('dblclick', (event) => {
       const coordinates = this.map.getCoordinateFromPixel(event.pixel);
@@ -230,10 +237,19 @@ export class MapService {
     });
   }
 
+  /**
+   * Method returning the coordinates for the spot newly created.
+   * @returns
+   */
   getNewSpotCoordinates() {
     return this.newSpotCoordinate;
   }
 
+  /**
+   * Method allowing to create a new spot as a Feature and a Point on the map.
+   * Adding a spot is currntly not permanent (mock list of spots)
+   * @param data Data reovered from submitting the form.
+   */
   createNewSpot(data: Spot) {
     const newSpot = new Feature({ geometry: new Point(data.coordinates) });
     newSpot.setProperties({

@@ -95,5 +95,6 @@ export class MapComponent implements OnInit {
   onClickSubmitSpot(data: any) {
     console.log(data);
     this.mapService.createNewSpot(data);
+    this.isAddFormShown = false;
   }
 }
