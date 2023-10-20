@@ -17,16 +17,18 @@ export class SpotDetailsComponent {
   constructor(private spotsService: SpotsService) {}
 
   onSubmitNewComment(newComment: string) {
-    const newCommentData: UserComment = {
-      name: 'John Doe',
-      text: newComment as string,
-      date: new Date().toLocaleDateString(),
-    };
+    if (newComment) {
+      const newCommentData: UserComment = {
+        name: 'John Doe',
+        text: newComment as string,
+        date: new Date().toLocaleDateString(),
+      };
 
-    const spotId = this.spot!.id;
-    if (spotId) {
-      this.spot!.commentList.push(newCommentData as UserComment);
-      this.spotsService.updateSpot(this.spot!).subscribe();
+      const spotId = this.spot!.id;
+      if (spotId) {
+        this.spot!.commentList.push(newCommentData as UserComment);
+        this.spotsService.updateSpot(this.spot!).subscribe();
+      }
     }
   }
 }

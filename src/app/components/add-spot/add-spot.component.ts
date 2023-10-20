@@ -52,7 +52,7 @@ export class AddSpotComponent {
       name: form.value.name as string,
       description: form.value.description as string,
       coordinates: [form.value.long, form.value.lat] as Coordinate,
-      date: new Date(),
+      date: new Date().toLocaleDateString(),
       username: 'John Doe',
       tagList,
       commentList: [] as UserComment[],

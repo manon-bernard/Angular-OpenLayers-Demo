@@ -9,7 +9,7 @@
       "name": "Tour Jacquemart",
       "description": "La tour Jacquemart de Romans-sur-Isère est une ancienne tour du premier rempart de la ville construit aux XIᵉ et XIIᵉ siècles. Elle est choisie pour accueillir, au XVᵉ siècle, un automate marteleur qui donne l heure : le Jacquemart.",
       "username": "John Doe",
-      "date": "2023-10-17",
+      "date": "17/10/2023",
       "tagList": [
         "monument"
       ],
@@ -17,7 +17,7 @@
         {
           "name": "John Doe",
           "text": "Très belle tour!",
-          "date": "2023-10-17"
+          "date": "17/10/2023"
         }
       ]
     },
@@ -30,7 +30,7 @@
       "name": "Escarpin Etoilé",
       "description": "Escarpin en soie rouge imprimée de petites étoiles dorées. Andréa Pfister",
       "username": "John Doe",
-      "date": "2023-10-17",
+      "date": "17/10/2023",
       "tagList": [
         "art"
       ],
@@ -38,7 +38,7 @@
         {
           "name": "John Doe",
           "text": "Très belle chaussure!",
-          "date": "2023-10-17"
+          "date": "17/10/2023"
         }
       ]
     },
@@ -51,7 +51,7 @@
       "name": "Collégiale Saint-Barnard",
       "description": "Abbaye de Saint-Barnard",
       "username": "John Doe",
-      "date": "2023-10-17",
+      "date": "17/10/2023",
       "tagList": [
         "monument"
       ],
@@ -59,7 +59,7 @@
         {
           "name": "John Doe",
           "text": "Très belle abbaye!",
-          "date": "2023-10-17"
+          "date": "17/10/2023"
         }
       ]
     },
@@ -104,6 +104,53 @@
       ],
       "commentList": [],
       "id": 5
+    },
+    {
+      "name": "Belvédère de St Romain de Lerps",
+      "description": "Vue depuis le pic! ",
+      "coordinates": [
+        4.799259961590988,
+        44.98354528139731
+      ],
+      "date": "2023-10-20T10:53:43.559Z",
+      "username": "John Doe",
+      "tagList": [
+        "nature"
+      ],
+      "commentList": [
+        {
+          "name": "John Doe",
+          "text": "Très belle vue !",
+          "date": "20/10/2023"
+        }
+      ],
+      "id": 6
+    },
+    {
+      "name": "Domaine de Lorient",
+      "description": "Parc",
+      "coordinates": [
+        4.9197531106193315,
+        44.86548755453023
+      ],
+      "date": "20/10/2023",
+      "username": "John Doe",
+      "tagList": [
+        "nature"
+      ],
+      "commentList": [
+        {
+          "name": "John Doe",
+          "text": "",
+          "date": "20/10/2023"
+        },
+        {
+          "name": "John Doe",
+          "text": "No empty comments!!!",
+          "date": "20/10/2023"
+        }
+      ],
+      "id": 7
     }
   ]
 }
