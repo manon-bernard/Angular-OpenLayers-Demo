@@ -53,11 +53,10 @@ export class MapComponent implements OnInit {
     this.mapService.updateUserLocation();
 
     // Existing spots Init.
-    this.mapService.showSpots(this.spots);
+    this.mapService.showSpots();
 
     // Clicks Listener.
     this.mapService.listenSpotOnClick();
-
     this.mapService.listenSpotOnDblClick();
   }
 
@@ -92,9 +91,9 @@ export class MapComponent implements OnInit {
     this.isAddFormShown = false;
   }
 
-  onClickSubmitSpot(data: any) {
+  onClickSubmitSpot(data: Spot) {
     console.log(data);
-    this.mapService.createNewSpot(data);
+    this.mapService.createNewSpot(this.spots, data);
     this.isAddFormShown = false;
   }
 }

@@ -14,6 +14,7 @@ import Point from 'ol/geom/Point';
 import { Circle, Fill, Stroke, Style } from 'ol/style.js';
 import { Spot } from 'src/app/models/spot';
 import { Geometry } from 'ol/geom';
+import { SpotsService } from '../spots/spots.service';
 
 // The map service is managing the whole logic:
 // - Displaying the map with the user coordinates/marker
@@ -111,6 +112,7 @@ export class MapService {
     });
   }
 
+  constructor(private spotsService: SpotsService) {}
   /**
    * Method responsible for updating the user marker position on the map.
    * @param coordinates Array of number / Coordinates, representing the current user location.
@@ -155,39 +157,48 @@ export class MapService {
    * Method allowing the creation of a vector layer displaying all the spots on the map.
    * @param spots Array of objects representing the lists of spots to display on the map.
    */
-  showSpots(spots: Spot[]) {
-    const featuresList: Feature<Geometry>[] = [];
-    spots.forEach((spot) => {
-      const newSpot = new Feature({ geometry: new Point(spot.coordinates) });
-      featuresList.push(newSpot);
-      newSpot.setProperties({
-        name: spot.name,
-      });
-    });
+  showSpots() {
+    // Init spotList as an empty array.
+    let spotList = [] as Spot[];
 
-    const spotLayer = new VectorLayer({
-      source: new VectorSource({
-        features: featuresList,
-      }),
-      style: new Style({
-        image: new Circle({
-          radius: 6,
-          fill: new Fill({
-            color: '#CD5C08',
-          }),
-          stroke: new Stroke({
-            color: '#fff',
-            width: 2,
+    // Async request for spot list.
+    this.spotsService.getSpots().subscribe((spots) => {
+      spotList = spots;
+
+      // FeaturesList creation.
+      const featuresList: Feature<Geometry>[] = [];
+      spotList.forEach((spot) => {
+        const newSpot = new Feature({ geometry: new Point(spot.coordinates) });
+        featuresList.push(newSpot);
+        newSpot.setProperties({
+          name: spot.name,
+        });
+      });
+
+      const spotLayer = new VectorLayer({
+        source: new VectorSource({
+          features: featuresList,
+        }),
+        style: new Style({
+          image: new Circle({
+            radius: 6,
+            fill: new Fill({
+              color: '#CD5C08',
+            }),
+            stroke: new Stroke({
+              color: '#fff',
+              width: 2,
+            }),
           }),
         }),
-      }),
+      });
+
+      this.spotLayer = spotLayer;
+      this.spotSource = spotLayer.getSource()!;
+
+      this.map.addLayer(this.spotLayer);
+      this.map.getView();
     });
-
-    this.spotLayer = spotLayer;
-    this.spotSource = spotLayer.getSource()!;
-
-    this.map.addLayer(this.spotLayer);
-    this.map.getView();
   }
 
   /**
@@ -250,11 +261,13 @@ export class MapService {
    * Adding a spot is currntly not permanent (mock list of spots)
    * @param data Data reovered from submitting the form.
    */
-  createNewSpot(data: Spot) {
+  createNewSpot(spots: Spot[], data: Spot) {
     const newSpot = new Feature({ geometry: new Point(data.coordinates) });
     newSpot.setProperties({
       name: data.name,
     });
     this.spotSource.addFeature(newSpot);
+
+    // ! Fix the new spot click (update spotList)
   }
 }

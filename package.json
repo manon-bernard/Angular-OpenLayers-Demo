@@ -8,7 +8,8 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "lint": "ng lint",
-    "compodoc": "npx compodoc -p tsconfig.doc.json -s "
+    "compodoc": "npx compodoc -p tsconfig.doc.json -s",
+    "data": "json-server --watch ./src/data/db.json"
   },
   "private": true,
   "dependencies": {

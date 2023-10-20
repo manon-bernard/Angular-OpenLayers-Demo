@@ -69,7 +69,7 @@
     <h3>File</h3>
 </p>
 <p class="comment">
-    <code>src/app/components/map/map.component.old.ts</code>
+    <code>src/app/components/map/map.component.ts</code>
 </p>
 
 
@@ -148,20 +148,16 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                    <span class="modifier">Private</span>
-                                <a href="#geolocation" >geolocation</a>
+                                <a href="#isAddFormShown" >isAddFormShown</a>
                             </li>
                             <li>
-                                    <span class="modifier">Private</span>
-                                <a href="#map" >map</a>
+                                <a href="#newSpotLatitude" >newSpotLatitude</a>
                             </li>
                             <li>
-                                    <span class="modifier">Private</span>
-                                <a href="#userLocation" >userLocation</a>
+                                <a href="#newSpotLongitude" >newSpotLongitude</a>
                             </li>
                             <li>
-                                    <span class="modifier">Private</span>
-                                <a href="#userMarkerLayer" >userMarkerLayer</a>
+                                <a href="#selectedSpot" >selectedSpot</a>
                             </li>
                         </ul>
                     </td>
@@ -176,25 +172,59 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#createMap" >createMap</a>
-                            </li>
-                            <li>
                                 <a href="#ngOnInit" >ngOnInit</a>
                             </li>
                             <li>
-                                <a href="#updateMapCenter" >updateMapCenter</a>
+                                <a href="#onClick" >onClick</a>
                             </li>
                             <li>
-                                <a href="#updateUserLocation" >updateUserLocation</a>
+                                <a href="#onClickAddSpot" >onClickAddSpot</a>
                             </li>
                             <li>
-                                <a href="#updateUserMarker" >updateUserMarker</a>
+                                <a href="#onClickCancel" >onClickCancel</a>
+                            </li>
+                            <li>
+                                <a href="#onClickSubmitSpot" >onClickSubmitSpot</a>
+                            </li>
+                            <li>
+                                <a href="#onDoubleClick" >onDoubleClick</a>
                             </li>
                         </ul>
                     </td>
                 </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Inputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#spots" >spots</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Outputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#mapClicked" >mapClicked</a>
+                            </li>
+                            <li>
+                                <a href="#mapDblClicked" >mapDblClicked</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
 
 
 
@@ -213,7 +243,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">src/app/components/map/map.component.old.ts:41</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">src/app/components/map/map.component.ts:40</a></div>
                             </td>
                         </tr>
 
@@ -251,8 +281,93 @@
         </table>
 </section>
 
+    <section data-compodoc="block-inputs">
+    <h3 id="inputs">Inputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="spots"></a>
+                        <b>spots</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../classes/Spot.html" target="_self" >Spot[]</a></code>
 
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/components/map/map.component.ts:22</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>List of registered spots with their associated informations.</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+    <section data-compodoc="block-outputs">
+    <h3 id="outputs">Outputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="mapClicked"></a>
+                        <b>mapClicked</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>EventEmitter</code>
 
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/components/map/map.component.ts:26</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Event Emitter to manage a click on the map.</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="mapDblClicked"></a>
+                        <b>mapDblClicked</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>EventEmitter</code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/app/components/map/map.component.ts:32</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Event Emitter to manage a double click on the map.</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
 
 
     <section data-compodoc="block-methods">
@@ -260,45 +375,6 @@
     <h3 id="methods">
         Methods
     </h3>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="createMap"></a>
-                    <span class="name">
-                        <span ><b>createMap</b></span>
-                        <a href="#createMap"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>createMap()</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="59"
-                            class="link-to-prism">src/app/components/map/map.component.old.ts:59</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-description"><p>Method responsible for creating the Map object and displaying it in the Map component.</p>
-</div>
-
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
-
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
     <table class="table table-sm table-bordered">
         <tbody>
             <tr>
@@ -319,15 +395,54 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="50"
-                            class="link-to-prism">src/app/components/map/map.component.old.ts:50</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="46"
+                            class="link-to-prism">src/app/components/map/map.component.ts:46</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Lifecycle hooks triggered on map component initialisation.</p>
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onClick"></a>
+                    <span class="name">
+                        <span ><b>onClick</b></span>
+                        <a href="#onClick"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onClick()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="69"
+                            class="link-to-prism">src/app/components/map/map.component.ts:69</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Method bound to the click event on the map.
+Triggers the search for an associated spot, in order to pass it to the main component.
+Event Emitter.</p>
 </div>
 
                     <div class="io-description">
@@ -342,32 +457,106 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="updateMapCenter"></a>
+                    <a name="onClickAddSpot"></a>
                     <span class="name">
-                        <span ><b>updateMapCenter</b></span>
-                        <a href="#updateMapCenter"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>onClickAddSpot</b></span>
+                        <a href="#onClickAddSpot"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>updateMapCenter(coordinates: Coordinate)</code>
+<code>onClickAddSpot()</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="78"
-                            class="link-to-prism">src/app/components/map/map.component.old.ts:78</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="87"
+                            class="link-to-prism">src/app/components/map/map.component.ts:87</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Method responsible for Map Center coordinates update.</p>
+                    <div class="io-description"><p>Method triggered upon clicking on the Add Spot Button</p>
 </div>
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onClickCancel"></a>
+                    <span class="name">
+                        <span ><b>onClickCancel</b></span>
+                        <a href="#onClickCancel"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onClickCancel()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="91"
+                            class="link-to-prism">src/app/components/map/map.component.ts:91</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onClickSubmitSpot"></a>
+                    <span class="name">
+                        <span ><b>onClickSubmitSpot</b></span>
+                        <a href="#onClickSubmitSpot"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onClickSubmitSpot(data: <a href="../classes/Spot.html" target="_self">Spot</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="95"
+                            class="link-to-prism">src/app/components/map/map.component.ts:95</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -378,14 +567,13 @@
                                     <td>Name</td>
                                     <td>Type</td>
                                     <td>Optional</td>
-                                    <td>Description</td>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>coordinates</td>
+                                    <td>data</td>
                                     <td>
-                                            <code>Coordinate</code>
+                                                <code><a href="../classes/Spot.html" target="_self" >Spot</a></code>
                                     </td>
 
                                     <td>
@@ -393,10 +581,6 @@
                                     </td>
 
 
-                                    <td>
-                                        <p>Array of number / Coordinates, representing the current user location.</p>
-
-                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -418,112 +602,34 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="updateUserLocation"></a>
+                    <a name="onDoubleClick"></a>
                     <span class="name">
-                        <span ><b>updateUserLocation</b></span>
-                        <a href="#updateUserLocation"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>onDoubleClick</b></span>
+                        <a href="#onDoubleClick"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>updateUserLocation()</code>
+<code>onDoubleClick()</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="85"
-                            class="link-to-prism">src/app/components/map/map.component.old.ts:85</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="74"
+                            class="link-to-prism">src/app/components/map/map.component.ts:74</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Method responsible for updating both user location property (on change) and user marker location when the user geolocation changes.</p>
-</div>
 
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="updateUserMarker"></a>
-                    <span class="name">
-                        <span ><b>updateUserMarker</b></span>
-                        <a href="#updateUserMarker"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>updateUserMarker(coordinates: Coordinate)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="115"
-                            class="link-to-prism">src/app/components/map/map.component.old.ts:115</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-description"><p>Method responsible for updating the user marker position on the map.</p>
-</div>
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                    <td>Description</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>coordinates</td>
-                                    <td>
-                                            <code>Coordinate</code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                    <td>
-                                        <p>Array of number / Coordinates, representing the current user location.</p>
-
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
-
-                    </div>
-                    <div class="io-description">
-                        
                     </div>
                 </td>
             </tr>
@@ -539,29 +645,33 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="geolocation"></a>
+                    <a name="isAddFormShown"></a>
                     <span class="name">
-                            <span class="modifier">Private</span>
-                        <span ><b>geolocation</b></span>
-                        <a href="#geolocation"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>isAddFormShown</b></span>
+                        <a href="#isAddFormShown"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Type : </i>    <code>Geolocation</code>
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
 
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">src/app/components/map/map.component.old.ts:41</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/app/components/map/map.component.ts:37</a></div>
                         </td>
                     </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Geolocation object, that will allow to get the user position.</p>
+                    <div class="io-description"><p>Boolean prop that indicate if the add spot form is visible.</p>
 </div>
                 </td>
             </tr>
@@ -572,32 +682,25 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="map"></a>
+                    <a name="newSpotLatitude"></a>
                     <span class="name">
-                            <span class="modifier">Private</span>
-                        <span ><b>map</b></span>
-                        <a href="#map"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>newSpotLatitude</b></span>
+                        <a href="#newSpotLatitude"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Type : </i>    <code>Map</code>
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
 
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/components/map/map.component.old.ts:29</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">src/app/components/map/map.component.ts:39</a></div>
                         </td>
                     </tr>
 
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-description"><p>Map object.</p>
-</div>
-                </td>
-            </tr>
 
         </tbody>
     </table>
@@ -605,37 +708,25 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="userLocation"></a>
+                    <a name="newSpotLongitude"></a>
                     <span class="name">
-                            <span class="modifier">Private</span>
-                        <span ><b>userLocation</b></span>
-                        <a href="#userLocation"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>newSpotLongitude</b></span>
+                        <a href="#newSpotLongitude"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Type : </i>    <code>Coordinate</code>
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
 
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Default value : </i><code>[2.349014, 48.864716]</code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/app/components/map/map.component.old.ts:33</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">src/app/components/map/map.component.ts:40</a></div>
                         </td>
                     </tr>
 
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-description"><p>User location, array of number. Default to Paris coordinates.</p>
-</div>
-                </td>
-            </tr>
 
         </tbody>
     </table>
@@ -643,29 +734,28 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="userMarkerLayer"></a>
+                    <a name="selectedSpot"></a>
                     <span class="name">
-                            <span class="modifier">Private</span>
-                        <span ><b>userMarkerLayer</b></span>
-                        <a href="#userMarkerLayer"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>selectedSpot</b></span>
+                        <a href="#selectedSpot"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Type : </i>    <code>VectorLayer&lt;VectorSource&gt;</code>
+                        <i>Type : </i>    <code>literal type | undefined</code>
 
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/app/components/map/map.component.old.ts:37</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/components/map/map.component.ts:18</a></div>
                         </td>
                     </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Layer for positionning the user marker on the map.</p>
+                    <div class="io-description"><p>Clicked spot, can be undefined.</p>
 </div>
                 </td>
             </tr>
@@ -678,164 +768,134 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
-
-// OL imports.
-import Map from &#x27;ol/Map&#x27;;
-import TileLayer from &#x27;ol/layer/Tile&#x27;;
-import View from &#x27;ol/View&#x27;;
-import OSM from &#x27;ol/source/OSM&#x27;;
-import Geolocation from &#x27;ol/Geolocation.js&#x27;;
-import { Coordinate } from &#x27;ol/coordinate&#x27;;
-import VectorLayer from &#x27;ol/layer/Vector&#x27;;
-import VectorSource from &#x27;ol/source/Vector&#x27;;
-import { Feature } from &#x27;ol&#x27;;
-import Point from &#x27;ol/geom/Point&#x27;;
-import {Circle, Fill, Stroke, Style} from &#x27;ol/style.js&#x27;;
-import {useGeographic} from &#x27;ol/proj.js&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, EventEmitter, Input, OnInit, Output } from &#x27;@angular/core&#x27;;
 import { MapService } from &#x27;src/app/services/map/map.service&#x27;;
+
+import { useGeographic } from &#x27;ol/proj&#x27;;
+import { Spot } from &#x27;src/app/models/spot&#x27;;
+import { Coordinate } from &#x27;ol/coordinate&#x27;;
 
 @Component({
   selector: &#x27;app-map&#x27;,
   templateUrl: &#x27;./map.component.html&#x27;,
   styleUrls: [&#x27;./map.component.css&#x27;],
-  providers: [MapService]
+  providers: [MapService],
 })
-export class MapComponent implements OnInit{
+export class MapComponent implements OnInit {
+  /**
+   * Clicked spot, can be undefined.
+   */
+  selectedSpot!: { name: string; coordinates: Coordinate } | undefined;
+  /**
+   * List of registered spots with their associated informations.
+   */
+  @Input() spots!: Spot[];
+  /**
+   * Event Emitter to manage a click on the map.
+   */
+  @Output() mapClicked &#x3D; new EventEmitter&lt;
+    { name: string; coordinates: Coordinate } | undefined
+  &gt;();
+  /**
+   * Event Emitter to manage a double click on the map.
+   */
+  @Output() mapDblClicked &#x3D; new EventEmitter();
 
   /**
-   * Map object.
+   * Boolean prop that indicate if the add spot form is visible.
    */
-  private map!: Map;
-    /**
-   * User location, array of number. Default to Paris coordinates.
-   */
-  private userLocation: Coordinate &#x3D; [2.349014, 48.864716];
-  /**
-   * Layer for positionning the user marker on the map.
-   */
-  private userMarkerLayer!: VectorLayer&lt;VectorSource&gt;;
-  /**
-   * Geolocation object, that will allow to get the user position.
-   */
-  private geolocation!: Geolocation
+  isAddFormShown: boolean &#x3D; false;
 
+  newSpotLatitude!: number;
+  newSpotLongitude!: number;
 
-  // creating a private property named mapService, injecting the MapService class.
+  // Creating a private property named mapService, injecting the MapService class.
   // On map component construction, create an instance of the mapService service to be used in the map component only (private).
-  constructor(private mapService: MapService){}
-  /**
-   * Lifecycle hooks triggered on map component initialisation.
-   */
-  ngOnInit(): void {
-    useGeographic(); //! Required to use coordinates.
-    this.createMap();
-    this.updateUserLocation();
+  constructor(private mapService: MapService) {}
+
+  ngOnInit() {
+    useGeographic(); // Required to use coordinates.
+
+    // Map Init
+    this.mapService.createMap();
+
+    // User Location Init
+    this.mapService.updateUserLocation();
+
+    // Existing spots Init.
+    this.mapService.showSpots(this.spots);
+
+    // Clicks Listener.
+    this.mapService.listenSpotOnClick();
+
+    this.mapService.listenSpotOnDblClick();
   }
 
   /**
-   * Method responsible for creating the Map object and displaying it in the Map component.
+   * Method bound to the click event on the map.
+   * Triggers the search for an associated spot, in order to pass it to the main component.
+   * Event Emitter.
    */
-  createMap(): void {
-    this.map &#x3D; new Map({
-      target:&#x27;ol-map&#x27;,
-      view: new View({
-        center: this.userLocation,
-        zoom: 13,
-      }),
-      layers:[
-        new TileLayer({
-          source: new OSM(),
-        })
-      ]
-    })
+  onClick() {
+    const spot &#x3D; this.mapService.getSelectedSpot();
+    this.mapClicked.emit(spot);
   }
 
-  /**
-   * Method responsible for Map Center coordinates update.
-   * @param coordinates Array of number / Coordinates, representing the current user location.
-   */
-  updateMapCenter(coordinates: Coordinate):void{
-    this.map.getView().setCenter(coordinates);
-  }
-
-  /**
-   * Method responsible for updating both user location property (on change) and user marker location when the user geolocation changes.
-   */
-  updateUserLocation() {
-
-    // Initialize a new object geolocation, an allow user position tracking.
-    this.geolocation &#x3D; new Geolocation({
-      tracking:true,
-    })
-
-    // Listen to user position changes, and if so triggers a callback that get the user location (coordinates)
-    // - If user location fetching respond with an error or undefined, set the user location to Paris.
-    // - If user location is defined, set the user location property to that value and set the marker position accordingly.
-    this.geolocation.on(&#x27;change:position&#x27;, () &#x3D;&gt; {
-      const userLocation: Coordinate | undefined &#x3D; this.geolocation.getPosition();
-      if (userLocation) {
-        //console.log(&#x27;Geolocation:&#x27;, userLocation);
-        this.userLocation &#x3D; userLocation;
-        this.updateMapCenter(this.userLocation);
-        this.updateUserMarker(this.userLocation);
-      } else {
-        //console.log(&#x27;Geolocation not available or permission denied. Centering on Paris.&#x27;);
-        this.userLocation &#x3D; [2.349014, 48.864716];
-        this.updateMapCenter(this.userLocation);
-        this.updateUserMarker(this.userLocation);
+  onDoubleClick() {
+    const coordinates &#x3D; this.mapService.getNewSpotCoordinates();
+    if (this.isAddFormShown) {
+      if (coordinates) {
+        this.newSpotLatitude &#x3D; coordinates[1];
+        this.newSpotLongitude &#x3D; coordinates[0];
       }
-    });
+    }
   }
 
   /**
-   * Method responsible for updating the user marker position on the map.
-   * @param coordinates Array of number / Coordinates, representing the current user location.
+   * Method triggered upon clicking on the Add Spot Button
    */
-  updateUserMarker(coordinates: Coordinate) {
-    // Reset User Marker Layer (remove previous marker)
-    if (this.userMarkerLayer) {
-    this.map.removeLayer(this.userMarkerLayer);
-    }
-    // Initialize a new vector layer for displaying User Marker, set features as Point, define marker style.
-    const userMarkerLayer &#x3D; new VectorLayer({
-      source: new VectorSource({
-        features: [
-          new Feature({
-            geometry: new Point(coordinates)
-          })
-        ]}),
-      style: new Style({
-        image: new Circle({
-          radius: 6,
-          fill: new Fill({
-            color: &#x27;#3399CC&#x27;,
-          }),
-          stroke: new Stroke({
-            color: &#x27;#fff&#x27;,
-            width: 2,
-          }),
-        })
-      })
-    });
-
-    // Update the layer with the newly created marker.
-    this.userMarkerLayer &#x3D; userMarkerLayer;
-    // Add the layer to the map to be displayed in the map component.
-    this.map.addLayer(this.userMarkerLayer);
+  onClickAddSpot() {
+    this.isAddFormShown &#x3D; true;
   }
 
+  onClickCancel() {
+    this.isAddFormShown &#x3D; false;
+  }
+
+  onClickSubmitSpot(data: Spot) {
+    console.log(data);
+    this.mapService.createNewSpot(this.spots, data);
+    this.isAddFormShown &#x3D; false;
+  }
 }
 </code></pre>
     </div>
 
     <div class="tab-pane fade " id="templateData">
         <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;map__container&quot;&gt;
-  &lt;div id&#x3D;&quot;ol-map&quot;&gt;&lt;/div&gt;
-  &lt;div class&#x3D;&quot;map__controls&quot;&gt;
-    &lt;app-button name&#x3D;&#x27;Ajouter un spot&#x27;&gt;&lt;/app-button&gt;
-    &lt;app-button name&#x3D;&#x27;Recentrer&#x27;&gt;&lt;/app-button&gt;
+  &lt;div
+    id&#x3D;&quot;ol-map&quot;
+    (click)&#x3D;&quot;onClick()&quot;
+    (dblclick)&#x3D;&quot;onDoubleClick()&quot;
+  &gt;&lt;/div&gt;
+  &lt;div
+    class&#x3D;&quot;map__controls&quot;
+    *ngIf&#x3D;&quot;!isAddFormShown&quot;
+  &gt;
+    &lt;app-button
+      name&#x3D;&#x27;Ajouter un spot&#x27;
+      (clicked)&#x3D;&quot;onClickAddSpot()&quot;
+      *ngIf&#x3D;&quot;!isAddFormShown&quot;
+    &gt;&lt;/app-button&gt;
+    &lt;!-- &lt;app-button name&#x3D;&#x27;Recentrer&#x27;&gt;&lt;/app-button&gt; --&gt;
   &lt;/div&gt;
+  &lt;app-add-spot
+    *ngIf&#x3D;&quot;isAddFormShown&quot;
+    [lat]&#x3D;&quot;newSpotLatitude&quot;
+    [long]&#x3D;&quot;newSpotLongitude&quot;
+    (clickedSubmit)&#x3D;&quot;onClickSubmitSpot($event)&quot;
+    (clickedCancel)&#x3D;&quot;onClickCancel()&quot;
+  &gt;&lt;/app-add-spot&gt;
 &lt;/div&gt;</code></pre>
     </div>
 
@@ -904,8 +964,8 @@ export class MapComponent implements OnInit{
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div class="map__container">  <div id="ol-map"></div>  <div class="map__controls">    <app-button name=\'Ajouter un spot\'></app-button>    <app-button name=\'Recentrer\'></app-button>  </div></div></div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'ButtonComponent', 'selector': 'app-button'},{'name': 'CommentItemComponent', 'selector': 'app-comment-item'},{'name': 'CommentListComponent', 'selector': 'app-comment-list'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'MainComponent', 'selector': 'app-main'},{'name': 'MapComponent', 'selector': 'app-map'},{'name': 'MapComponent', 'selector': 'app-map'},{'name': 'SpotDetailsComponent', 'selector': 'app-spot'},{'name': 'TagComponent', 'selector': 'app-tag'}];
+        var COMPONENT_TEMPLATE = '<div><div class="map__container">  <div    id="ol-map"    (click)="onClick()"    (dblclick)="onDoubleClick()"  ></div>  <div    class="map__controls"    *ngIf="!isAddFormShown"  >    <app-button      name=\'Ajouter un spot\'      (clicked)="onClickAddSpot()"      *ngIf="!isAddFormShown"    ></app-button>    <!-- <app-button name=\'Recentrer\'></app-button> -->  </div>  <app-add-spot    *ngIf="isAddFormShown"    [lat]="newSpotLatitude"    [long]="newSpotLongitude"    (clickedSubmit)="onClickSubmitSpot($event)"    (clickedCancel)="onClickCancel()"  ></app-add-spot></div></div>'
+    var COMPONENTS = [{'name': 'AddSpotComponent', 'selector': 'app-add-spot'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'ButtonComponent', 'selector': 'app-button'},{'name': 'CommentItemComponent', 'selector': 'app-comment-item'},{'name': 'CommentListComponent', 'selector': 'app-comment-list'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'MainComponent', 'selector': 'app-main'},{'name': 'MapComponent', 'selector': 'app-map'},{'name': 'SpotDetailsComponent', 'selector': 'app-spot'},{'name': 'TagComponent', 'selector': 'app-tag'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'MapComponent'};
 </script>

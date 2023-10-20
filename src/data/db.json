@@ -1,0 +1,64 @@
+{
+  "spots": [
+    {
+      "coordinates": [
+        5.049640179557884,
+        45.044852676867755
+      ],
+      "name": "Tour Jacquemart",
+      "description": "La tour Jacquemart de Romans-sur-Isère est une ancienne tour du premier rempart de la ville construit aux XIᵉ et XIIᵉ siècles. Elle est choisie pour accueillir, au XVᵉ siècle, un automate marteleur qui donne l heure : le Jacquemart.",
+      "username": "John Doe",
+      "date": "2023-10-17",
+      "tagList": [
+        "monument"
+      ],
+      "commentList": [
+        {
+          "name": "John Doe",
+          "text": "Très belle tour!",
+          "date": "2023-10-17"
+        }
+      ]
+    },
+    {
+      "coordinates": [
+        5.055982442472704,
+        45.04473810315999
+      ],
+      "name": "Escarpin Etoilé",
+      "description": "Escarpin en soie rouge imprimée de petites étoiles dorées. Andréa Pfister",
+      "username": "John Doe",
+      "date": "2023-10-17",
+      "tagList": [
+        "art"
+      ],
+      "commentList": [
+        {
+          "name": "John Doe",
+          "text": "Très belle chaussure!",
+          "date": "2023-10-17"
+        }
+      ]
+    },
+    {
+      "coordinates": [
+        5.04920859876103,
+        45.042443868177855
+      ],
+      "name": "Collégiale Saint-Barnard",
+      "description": "Abbaye de Saint-Barnard",
+      "username": "John Doe",
+      "date": "2023-10-17",
+      "tagList": [
+        "monument"
+      ],
+      "commentList": [
+        {
+          "name": "John Doe",
+          "text": "Très belle abbaye!",
+          "date": "2023-10-17"
+        }
+      ]
+    }
+  ]
+}
